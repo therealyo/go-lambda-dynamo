@@ -1,0 +1,8 @@
+find ./google/ads/googleads/v13 -name '*.proto' -print0 | xargs -0 protoc \
+  -I=./google \
+  --go_out=./output \
+  --go-grpc_out=./output \
+  --go_gapic_out=./output \
+  --go_gapic_opt='go-gapic-package=clients;clients' \
+  --go_gapic_opt="api-service-config=./google/ads/googleads/v13/googleads_v13.yaml" \
+  --go_gapic_opt="grpc-service-config=./google/ads/googleads/v13/googleads_grpc_service_config.json"
